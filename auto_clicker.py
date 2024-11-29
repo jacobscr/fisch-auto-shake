@@ -1,17 +1,19 @@
 import cv2
-# AutoIt, weil pyautogui dogshit ist
 import autoit
 import time
 import numpy as np
 from PIL import ImageGrab
+import keyboard
 
 # Template reinladen
 template = cv2.imread("button_template.png", cv2.IMREAD_UNCHANGED)
 template_gray = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
 w, h = template_gray.shape[::-1]
 
+running = False
+
 def find_button_on_screen():
-    # Button suchen indem mit Screeenshot abgeglichen wird
+    # Button suchen indem mit Screenshot abgeglichen wird
     screenshot = ImageGrab.grab()
     screenshot_np = np.array(screenshot)
     screenshot_gray = cv2.cvtColor(screenshot_np, cv2.COLOR_BGR2GRAY)
@@ -32,15 +34,22 @@ def click_button(x, y):
     autoit.mouse_move(center_x, center_y, speed=3)
     autoit.mouse_click("left", center_x, center_y)
 
+def toggle_running():
+    global running
+    running = not running
+    print(f"Running: {running}")
+
+keyboard.add_hotkey('F8', toggle_running)
+
 # Hauptschleife
 while True:
-    # Alle 0.5 Sekunden einen Screenshot machen und nach dem Button suchen
-    button_location = find_button_on_screen()
-    if button_location:
-        print(f"Button gefunden bei: {button_location}")
-        # wenn er gefunden wurde wird er geklickt
-        click_button(*button_location)
-    else:
-        print("Button nicht gefunden.")
-
+    if running:
+        # Alle 0.5 Sekunden einen Screenshot machen und nach dem Button suchen
+        button_location = find_button_on_screen()
+        if button_location:
+            print(f"Button gefunden bei: {button_location}")
+            # wenn er gefunden wurde wird er geklickt
+            click_button(*button_location)
+        else:
+            print("Button nicht gefunden.")
     time.sleep(0.5)
