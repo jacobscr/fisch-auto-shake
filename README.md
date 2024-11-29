@@ -1,6 +1,6 @@
 # Auto Clicker for Roblox Game "Fisch"
 
-A simple auto clicker that detects a the "shake" button on the screen and automatically clicks it.
+A simple auto clicker that detects the "shake" button on the screen and automatically clicks it.
 
 ## Prerequisites
 
@@ -9,6 +9,7 @@ A simple auto clicker that detects a the "shake" button on the screen and automa
 - AutoIt
 - NumPy
 - Pillow
+- keyboard
 
 ## Installation
 
@@ -20,7 +21,7 @@ A simple auto clicker that detects a the "shake" button on the screen and automa
 
 2. Install the dependencies:
     ```bash
-    pip install opencv-python autoit numpy pillow
+    pip install opencv-python autoit numpy pillow keyboard
     ```
 
 ## Usage
@@ -31,4 +32,4 @@ A simple auto clicker that detects a the "shake" button on the screen and automa
     python auto_clicker.py
     ```
 
-The script will search for the button on the screen every 0.5 seconds and click it if found. It also simulates a shaking movement before clicking.
+The script will search for the button on the screen every 0.5 seconds and click it if found. It also simulates a shaking movement before clicking. Press `F8` to start or stop the script.
