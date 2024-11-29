@@ -15,7 +15,7 @@ A simple auto clicker that detects a the "shake" button on the screen and automa
 1. Clone the repository:
     ```bash
     git clone https://github.com/jacobscr/fisch-auto-shake.git
-    cd fish-auto-shake
+    cd fisch-auto-shake
     ```
 
 2. Install the dependencies:
