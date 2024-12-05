@@ -21,7 +21,7 @@ A simple auto clicker that detects the "shake" button on the screen and automati
 
 2. Install the dependencies:
     ```bash
-    pip install opencv-python autoit numpy pillow keyboard
+    pip install opencv-python pyautoit numpy pillow keyboard
     ```
 
 ## Usage
